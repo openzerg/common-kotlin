@@ -14,7 +14,7 @@ repositories {
 dependencies {
     api("com.connectrpc:connect-kotlin:0.8.0")
     api("com.connectrpc:connect-kotlin-google-java-ext:0.8.0")
-    api("com.google.protobuf:protobuf-java:4.29.5")
+    api("com.google.protobuf:protobuf-java:4.34.0")
 }
 
 sourceSets {

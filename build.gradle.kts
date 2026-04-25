@@ -1,9 +1,10 @@
 plugins {
-    kotlin("jvm") version "1.9.25"
+    kotlin("jvm") version "2.1.21"
     `java-library`
+    `maven-publish`
 }
 
-group = "com.github.openzerg"
+group = "io.openzerg"
 version = "0.0.1"
 
 repositories {
@@ -22,7 +23,25 @@ sourceSets {
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "io.openzerg"
+            artifactId = "common-kotlin"
+            version = "0.0.1"
+            from(components["java"])
+        }
+    }
 }

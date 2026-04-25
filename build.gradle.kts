@@ -41,8 +41,18 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "io.openzerg"
             artifactId = "common-kotlin"
-            version = "0.0.1"
+            version = "0.0.8"
             from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/openzerg/common-kotlin")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: "SilverMelon233"
+                password = System.getenv("GITHUB_TOKEN") ?: ""
+            }
         }
     }
 }

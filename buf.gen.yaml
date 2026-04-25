@@ -1,6 +1,10 @@
 version: v2
 plugins:
-  - remote: buf.build/protocolbuffers/java
+  - remote: buf.build/connectrpc/kotlin:v0.8.0
     out: gen
-  - remote: buf.build/connectrpc/kotlin
+  # connectrpc/kotlin depends on protocolbuffers/kotlin
+  - remote: buf.build/protocolbuffers/kotlin:v34.0
+    out: gen
+  # protocolbuffers/kotlin depends on protocolbuffers/java
+  - remote: buf.build/protocolbuffers/java:v34.0
     out: gen

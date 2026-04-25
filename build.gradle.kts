@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.21"
+    kotlin("jvm") version "2.3.21"
     `java-library`
     `maven-publish`
 }
@@ -24,10 +24,10 @@ sourceSets {
 }
 
 kotlin {
-    jvmToolchain(17)
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
-        freeCompilerArgs.add("-Xskip-metadata-version-check")
+        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
+        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
     }
 }
 
